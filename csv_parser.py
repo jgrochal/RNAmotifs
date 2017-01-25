@@ -1,4 +1,5 @@
 import requests
+import urllib.request
 
 with open('int.csv', 'r', encoding='UTF8') as f:
     data = f.read()
@@ -46,16 +47,20 @@ for one_motif in motifs_temp_arr:
                 temp = []
 
 sites = []
-for m in motifs_begin_end[1:20]:
+for m in motifs_begin_end[1:15]:
     i = motifs_begin_end.index(m)
     # print(m[0] + " " + m[1] + ":" + m[2])
     s = 'http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/' + m[1].lower() + '/'
     request = requests.get(s)
     if request.status_code == 200:
-        sites.append(s + ' ' + m[2] + ' ' + m[3] + ' ' + m[0] + '\n')
+        sites.append(s + '\t' + m[2] + '\t' + m[3] + '\t' + m[0] + '\n')
 
 f = open('websites.txt', 'w')
 for line in sites:
     f.write(line)
 f.close()
 
+# images
+for name in headers[1:10]:
+    f = name[1:] + '.png'
+    urllib.request.urlretrieve('http://rna.bgsu.edu/img/MotifAtlas/IL1.18/' + f, 'bgsu_rna/' + f)
