@@ -1,0 +1,6 @@
+http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4ioa/	492	519	>IL_02359.6
+http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4b5r/	64	85	>IL_02809.5
+http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/3gx5/	64	85	>IL_02809.5
+http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4aob/	64	85	>IL_02809.5
+http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4kqy/	85	109	>IL_02809.5
+http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/3v7e/	296	317	>IL_02809.5
