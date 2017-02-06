@@ -64,7 +64,7 @@ def parse_file(input_file, output_file):
 
     sites = []
     for m in motifs_begin_end[1:15]:
-        i = motifs_begin_end.index(m)
+        # i = motifs_begin_end.index(m)
         # print(m[0] + " " + m[1] + ":" + m[2])
         s = website_db + m[1].lower() + '/'
         if does_website_exist(s):
