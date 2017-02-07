@@ -11,6 +11,8 @@ def create_list_of_urls(site, name_list):
         s = site + f
         if does_website_exist(s):
             result_list.append(site + f)
+        else:
+            result_list.append('404')
     return result_list
 
 
