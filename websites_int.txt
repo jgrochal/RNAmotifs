@@ -496,16 +496,11 @@ http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/2xxa/	62
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4ioa/	1593	1435	>IL_93424.8
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1x8w/	216	257	>IL_93424.8
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4gma/	97	143	>IL_93568.6
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4ioa/	716	741	>IL_93568.6
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4n0t/	95	36	>IL_93568.6
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1fjg/	605	633	>IL_93568.6
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4ioa/	1132	1045	>IL_93635.1
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4qk8/	31	94	>IL_93855.1
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/3umy/	2110	2179	>IL_94403.7
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4jrc/	37	69	>IL_94403.7
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1mzp/	6	50	>IL_94403.7
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/3d0u/	19	67	>IL_94744.1
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/3dir/	22	70	>IL_94744.1
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4faw/	296	321	>IL_94973.1
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1fjg/	905	894	>IL_95652.6
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/3j7a/	1230	1219	>IL_95652.6
@@ -517,10 +512,6 @@ http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/3bnq/	7	
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4tzz/	37	71	>IL_96604.1
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4ioa/	2570	2582	>IL_98016.2
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1kxk/	61	11	>IL_98016.2
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1duh/	45	4_555	>IL_98284.1
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1duh/	4_555	64	>IL_98284.1
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/2pxv/	146	165	>IL_98284.1
-http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1lnt/	4	21	>IL_98284.1
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1fjg/	47	361	>IL_99363.2
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/1lng/	223	198	>IL_99561.1
 http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/4ioa/	1451	1571	>IL_99561.1
