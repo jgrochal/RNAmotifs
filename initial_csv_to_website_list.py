@@ -63,7 +63,7 @@ def parse_file(input_file, output_file):
                     temp = []
 
     sites = []
-    for m in motifs_begin_end[1:15]:
+    for m in motifs_begin_end:
         # i = motifs_begin_end.index(m)
         # print(m[0] + " " + m[1] + ":" + m[2])
         s = website_db + m[1].lower() + '/'
@@ -86,6 +86,7 @@ def does_website_exist(site):
 
 def main():
     parse_file('int.csv', 'websites_int.txt')
+    parse_file('pin.csv', 'websites_pin.txt')
 
 if __name__ == '__main__':
     main()
