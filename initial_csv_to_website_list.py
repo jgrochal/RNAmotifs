@@ -1,13 +1,16 @@
 import requests
 
+# URLs of RNA databases
 website_db = 'http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/'
-website_initial_db = 'http://rna.bgsu.edu/img/MotifAtlas/IL1.18/'
+website_initial_db_il = 'http://rna.bgsu.edu/img/MotifAtlas/IL1.18/'
+website_initial_db_hl = 'http://rna.bgsu.edu/img/MotifAtlas/HL1.18/'
 
 
+# Takes a website address and list of file names as parameters and generates list of urls.
 def create_list_of_urls(site, name_list):
     result_list = []
     for name in name_list:
-        f = name[1:] + '.png'
+        f = name[1:] + '.png' # starting from second character, as we know the header name begins with '>'.
         s = site + f
         if does_website_exist(s):
             result_list.append(site + f)
@@ -16,13 +19,16 @@ def create_list_of_urls(site, name_list):
     return result_list
 
 
-def parse_file(input_file, output_file):
+# Takes initial CSV file from first database and returns file containing existing websites with possible motifs.
+# argument 'website' in this script should be website_initial_db_il if processed internal loops, and
+# website_initial_db_hl when working with hairpin loops.
+def parse_file(input_file, output_file, id_out_file, website):
     with open(input_file, 'r', encoding='UTF8') as f:
         data = f.read()
 
     all_data_lines = data.split('\n')
     indexes_of_motif_names = []
-    indexes_content = []  # 0 is a header, 1 is data
+    # indexes_content = []  # 0 is an ID, 1 is data
     headers = []
     separated_data_lines = []
     temp_string = ""
@@ -33,18 +39,29 @@ def parse_file(input_file, output_file):
                 separated_data_lines.append(temp_string)
             temp_string = ""
             indexes_of_motif_names.append(all_data_lines.index(line))
-            indexes_content.append(0)
+            # indexes_content.append(0)
             headers.append(line)
 
         else:
-            indexes_content.append(1)
+            # indexes_content.append(1)
             temp_string += line
             temp_string += '\n'
 
     separated_data_lines.append(temp_string)
 
-    # headers_urls = create_list_of_urls(website_initial_db, headers)
-    # print(headers_urls)
+    # Take list of those 'headers' and generate list of URLs to their 2D structures.
+    headers_urls = create_list_of_urls(website, headers)
+
+    # Save those URLs to a file.
+    # This section is now commented as it takes a lot of time to compute it,
+    # if you wish to recreate output files please uncomment.
+    """"
+    n_headers = len(headers)
+    f = open(id_out_file, 'w')
+    for i in range(n_headers):
+        line = headers[i] + '|' + headers_urls[i] + '\n'
+        f.write(line)
+    f.close()"""
 
     motifs_temp_arr = []
     for line in separated_data_lines:
@@ -56,18 +73,19 @@ def parse_file(input_file, output_file):
         temp = []
         for a in one_motif:
             if len(a) > 0:
-                temp.append(headers[i])
-                temp.append(a.split(',')[0].split('|')[0])
-                temp.append(a.split(',')[0].split('|')[-1])
-                temp.append(a.split('.')[-1].split('|')[-1])
+                temp.append(headers[i]) # add ID of motif
+                temp.append(a.split(',')[0].split('|')[0]) # url of structure
+                temp.append(a.split(',')[0].split('|')[-1]) # motif beginning
+                temp.append(a.split('.')[-1].split('|')[-1]) # motif end
                 if len(temp) == 4:
                     motifs_begin_end.append(temp)
                     temp = []
 
+    # Next part takes a lot of time and is commented, as result files have been generated already.
+    # To re-generate those files please uncomment section below.
+    """
     sites = []
     for m in motifs_begin_end:
-        # i = motifs_begin_end.index(m)
-        # print(m[0] + " " + m[1] + ":" + m[2])
         s = website_db + m[1].lower() + '/'
         if does_website_exist(s):
             sites.append(s + '\t' + m[2] + '\t' + m[3] + '\t' + m[0] + '\n')
@@ -75,9 +93,10 @@ def parse_file(input_file, output_file):
     f = open(output_file, 'w')
     for line in sites:
         f.write(line)
-    f.close()
+    f.close()"""
 
 
+# Checks website status and returns true if requested website exists. Warning: this function may run for a long time!
 def does_website_exist(site):
     request = requests.get(site)
     if request.status_code == 200:
@@ -87,8 +106,8 @@ def does_website_exist(site):
 
 
 def main():
-    parse_file('int.csv', 'websites_int.txt')
-    parse_file('pin.csv', 'websites_pin.txt')
+    parse_file('int.csv', 'websites_int.txt', 'int_id_url.txt', website_initial_db_il)
+    parse_file('pin.csv', 'websites_pin.txt', 'pin_id_url.txt', website_initial_db_hl)
 
 if __name__ == '__main__':
     main()
