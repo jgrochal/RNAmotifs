@@ -107,7 +107,6 @@ def parse_file(input_file, output_file, id_out_file, website):
     f.close()"""
 
 
-
 def main():
     parse_file('int.csv', 'websites_int.txt', 'int_id_url.txt', website_initial_db_il)
     parse_file('pin.csv', 'websites_pin.txt', 'pin_id_url.txt', website_initial_db_hl)
