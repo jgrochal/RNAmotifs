@@ -7,6 +7,15 @@ website_initial_db_il = 'http://rna.bgsu.edu/img/MotifAtlas/IL1.18/'
 website_initial_db_hl = 'http://rna.bgsu.edu/img/MotifAtlas/HL1.18/'
 
 
+# Checks website status and returns true if requested website exists. Warning: this function may run for a long time!
+def does_website_exist(site):
+    request = requests.get(site)
+    if request.status_code == 200:
+        return True
+    else:
+        return False
+
+
 # Takes a website address and list of file names as parameters and generates list of urls.
 def create_list_of_urls(site, name_list):
     result_list = []
@@ -97,14 +106,6 @@ def parse_file(input_file, output_file, id_out_file, website):
         f.write(line)
     f.close()"""
 
-
-# Checks website status and returns true if requested website exists. Warning: this function may run for a long time!
-def does_website_exist(site):
-    request = requests.get(site)
-    if request.status_code == 200:
-        return True
-    else:
-        return False
 
 
 def main():
