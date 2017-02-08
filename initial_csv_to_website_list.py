@@ -1,4 +1,5 @@
 import requests
+from io import open
 
 # URLs of RNA databases
 website_db = 'http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/'
@@ -10,7 +11,7 @@ website_initial_db_hl = 'http://rna.bgsu.edu/img/MotifAtlas/HL1.18/'
 def create_list_of_urls(site, name_list):
     result_list = []
     for name in name_list:
-        f = name[1:] + '.png' # starting from second character, as we know the header name begins with '>'.
+        f = name[1:] + '.png'  # starting from second character, as we know the header name begins with '>'.
         s = site + f
         if does_website_exist(s):
             result_list.append(site + f)
@@ -49,8 +50,9 @@ def parse_file(input_file, output_file, id_out_file, website):
 
     separated_data_lines.append(temp_string)
 
-    # Take list of those 'headers' and generate list of URLs to their 2D structures.
-    headers_urls = create_list_of_urls(website, headers)
+    # Take list of those 'headers' and generate list of URLs to their 2D structures. This is commented, as it takes
+    # quite some time to compute. Please uncomment if you wish to recheck websites and generate a file later.
+    # headers_urls = create_list_of_urls(website, headers)
 
     # Save those URLs to a file.
     # This section is now commented as it takes a lot of time to compute it,
@@ -73,10 +75,10 @@ def parse_file(input_file, output_file, id_out_file, website):
         temp = []
         for a in one_motif:
             if len(a) > 0:
-                temp.append(headers[i]) # add ID of motif
-                temp.append(a.split(',')[0].split('|')[0]) # url of structure
-                temp.append(a.split(',')[0].split('|')[-1]) # motif beginning
-                temp.append(a.split('.')[-1].split('|')[-1]) # motif end
+                temp.append(headers[i])  # add ID of motif
+                temp.append(a.split(',')[0].split('|')[0])  # url of structure
+                temp.append(a.split(',')[0].split('|')[-1])  # motif beginning
+                temp.append(a.split('.')[-1].split('|')[-1])  # motif end
                 if len(temp) == 4:
                     motifs_begin_end.append(temp)
                     temp = []
