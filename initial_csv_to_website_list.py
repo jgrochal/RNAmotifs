@@ -105,7 +105,7 @@ def parse_file(input_file, output_file, id_out_file, website):
     f = open(output_file, 'w')
     for line in sites:
         f.write(line)
-    f.close()"""
+    f.close() """
 
 
 class TestMethods(unittest.TestCase):
