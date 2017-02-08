@@ -3,6 +3,9 @@
 ## What is the project about?
 In this project RNA motifs from RNA 3D Motif Atlas (http://rna.bgsu.edu/rna3dhub/motifs), both internal loops and hairpin loops, were searched for in a second database - RNA Bricks (http://iimcb.genesilico.pl/rnabricks2). This was done to see whether the motifs from the first database are present in the second one.
 
+## Prerequsites
+To be able to run the scripts provided please have Python 3.4 and requests package installed. The script should also work fine on Python 2.7 installed.
+
 ## How to use the files provided?
 Initial data from the RNA 3D Motif Atlas is stored in two CSV files:
 ````
@@ -52,16 +55,34 @@ This is very long process, so if you feel like it, you might contribute and try 
 
 ## Finally!
 We can use the second script to generate output CSV file. This way we will be able to parse the information we have in any way we want sometime later. Please make sure that you haven't modified output files and that there are the two new input files (images_x) prepared.
-#TODO
+The second script:
+````
+combine_outputs_to_result_file.py
+````
+will take websites, images and id .txt files as its inputs and give a CSV file as a result. The result file will contain information such as:
+````
+motif ID in RNA 3D Motif atlas, URL of motifs 2D structure in Atlas, 
+    PDB id of structure which may possibly contain the motif, URL of motif's 2D structure in RNA Bricks
+````
+The data is comma-delimited, so it will be easy to interpret as needed. 
 
 ## Some numbers one might find interesting
 When processing all of the motifs one shouldn't be surprised that there is some difference between what is stored in two different databases. 
 
 Internal loops:
 - 372 entries (motifs) in 3D Motif Atlas
+- 2410 possible structures containing given motifs (from CSV file)
+- 520 possible structures containing givem motifs on RNA Bricks(after checking status code)
+- 299 structures containin initial motifs
+- 128 unique motifs found in second database. 
 
 Hairpin loops:
 - 316 entries (motifs) in 3D Motif Atlas
+- 1475 possible structures containing given motifs (from CSV file)
+- 397 possible structures containing givem motifs on RNA Bricks(after checking status code)
+- 232 structures containing initial motifs
+- 119 unique motifs found in second database. 
+
 
 ## Author
 Joanna Grochal (joanna.k.grochal@gmail.com)
