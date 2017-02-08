@@ -1,5 +1,6 @@
 import requests
 from io import open
+import unittest
 
 # URLs of RNA databases
 website_db = 'http://iimcb.genesilico.pl/rnabricks2/fragments/browse_frags/mcannotate/'
@@ -107,9 +108,16 @@ def parse_file(input_file, output_file, id_out_file, website):
     f.close()"""
 
 
+class TestMethods(unittest.TestCase):
+
+    def test_does_website_exist(self):
+        self.assertTrue(does_website_exist('http://www.google.pl/'))
+
+
 def main():
     parse_file('int.csv', 'websites_int.txt', 'int_id_url.txt', website_initial_db_il)
     parse_file('pin.csv', 'websites_pin.txt', 'pin_id_url.txt', website_initial_db_hl)
 
 if __name__ == '__main__':
+    # unittest.main()
     main()
